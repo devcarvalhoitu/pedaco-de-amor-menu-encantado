@@ -1,23 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+import {createFileRoute,Link} from '@tanstack/react-router';
+import {useSuspenseQuery} from '@tanstack/react-query';
+import {useEffect,useState} from 'react';
+import {ArrowRight,ChevronLeft,ChevronRight,Heart,MessageCircle,Sparkles,ShoppingBag} from 'lucide-react';
+import {Button} from '@/components/ui/button';
+import {Storefront} from '@/components/storefront';
+import {MenuSection} from '@/components/menu';
+import {AboutSection,SocialSection} from '@/components/public-sections';
+import {shopQuery,shopHead} from '@/lib/shop-query';
+import {safeLink} from '@/lib/shop-types';
+export const Route=createFileRoute('/')({loader:({context})=>context.queryClient.ensureQueryData(shopQuery),head:()=>shopHead('Confeitaria artesanal','Doces feitos à mão, com carinho. Descubra nossos brigadeiros, bolos e tortas e faça seu pedido.'),component:Index});
+function Index(){const {data}=useSuspenseQuery(shopQuery);const [index,setIndex]=useState(0);const count=data.slides.length;const slide=data.slides[index%Math.max(1,count)];useEffect(()=>{if(count<2||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;const timer=setInterval(()=>setIndex(i=>(i+1)%count),6500);return()=>clearInterval(timer);},[count]);return <Storefront><section className="hero" aria-label="Destaques da confeitaria">{slide&&<img className="hero-photo" src={slide.image_url} alt={slide.title||'Doces artesanais da confeitaria'}/>}<div className="site-container hero-content"><div className="eyebrow"><Sparkles className="size-3.5"/>Cada receita, um gesto de carinho</div><h1>{index===0?data.settings.name:slide?.title||data.settings.name}</h1><p className="hero-tagline">{slide?.subtitle||'Pequenos doces. Grandes momentos.'}</p><p className="hero-description">Doces artesanais que abraçam o coração.<br/>Feitos com ingredientes especiais e aquele<br className="hidden sm:block"/> carinho que você sente na primeira mordida.</p>{slide?.link&&safeLink(slide.link)?<Button asChild size="lg"><a href={safeLink(slide.link)}>Descubra esse doce <ArrowRight/></a></Button>:<Button asChild size="lg"><Link to="/cardapio">Conheça nosso cardápio <ArrowRight/></Link></Button>}<div className="hero-detail"><Heart className="size-3 text-primary"/>Artesanal de verdade. Especial como você.</div></div>{count>1&&<><Button className="hero-arrow left" variant="ghost" size="icon" aria-label="Imagem anterior" onClick={()=>setIndex(i=>(i-1+count)%count)}><ChevronLeft/></Button><Button className="hero-arrow right" variant="ghost" size="icon" aria-label="Próxima imagem" onClick={()=>setIndex(i=>(i+1)%count)}><ChevronRight/></Button><div className="hero-controls">{data.slides.map((s,i)=><Button key={s.id} className="hero-dot" data-active={index%count===i} variant="ghost" aria-label={`Ver imagem ${i+1}`} onClick={()=>setIndex(i)}/>)}</div></>}</section><section className="order-band"><div className="site-container order-band-inner"><div className="order-band-copy"><span className="order-band-icon"><ShoppingBag className="size-5"/></span><div><p className="font-medium">Seu próximo momento doce começa aqui.</p><p className="text-muted-foreground text-xs mt-1">Escolha, peça e deixe o resto com a gente.</p></div></div><Button asChild size="lg"><Link to="/cardapio"><MessageCircle/>Clique aqui e faça seu pedido <ArrowRight/></Link></Button></div></section><MenuSection home/><div className="site-container text-center -mt-7 mb-12"><Button variant="link" asChild><Link to="/cardapio">Ver todo o cardápio <ArrowRight/></Link></Button></div><AboutSection/><SocialSection/></Storefront>;}

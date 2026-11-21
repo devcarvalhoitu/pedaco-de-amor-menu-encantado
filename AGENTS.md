@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application architecture
+- Public storefront data loads through an RLS-scoped server function and shared Query options; this keeps server rendering and customer views consistent.
+- Orders are created by a validated database RPC that calculates catalog prices; never accept customer-supplied totals.
+- Administrative data access uses the authenticated client and database role policies; no role is derived from profile metadata.
+- Private media paths are signed only after reading an approved public content row; never expose arbitrary storage paths.
+- Shared storefront and cart components live outside route modules; each public content route owns its metadata.

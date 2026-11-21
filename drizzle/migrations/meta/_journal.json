@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1795291108883,
+      "tag": "0000_confeitaria_catalogo_pedidos",
+      "breakpoints": true
+    }
+  ]
+}

@@ -84,10 +84,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Doce Encanto — Confeitaria artesanal" },
+      { title: "Pedaços de amor gourmet — Confeitaria artesanal" },
       { name: "description", content: "Doces artesanais feitos com carinho para os seus melhores momentos." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Doce Encanto — Confeitaria artesanal" },
+      { property: "og:title", content: "Pedaços de amor gourmet — Confeitaria artesanal" },
       { property: "og:description", content: "Doces artesanais feitos com carinho para os seus melhores momentos." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

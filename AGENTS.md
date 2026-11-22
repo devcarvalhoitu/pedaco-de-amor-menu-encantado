@@ -35,3 +35,5 @@ use the editor.
 - Administrative data access uses the authenticated client and database role policies; no role is derived from profile metadata.
 - Private media paths are signed only after reading an approved public content row; never expose arbitrary storage paths.
 - Shared storefront and cart components live outside route modules; each public content route owns its metadata.
+
+- The media dashboard is a child of the client-only authenticated layout with an additional admin-role check; RLS independently enforces all writes.

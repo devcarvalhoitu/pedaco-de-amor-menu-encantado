@@ -135,3 +135,10 @@
  .form-grid,.contact-grid { grid-template-columns:1fr; } .auth-box { padding:26px; } .admin-layout { grid-template-columns:1fr; } .admin-sidebar { position:static; height:auto; padding:16px; flex-direction:row; overflow:auto; align-items:center; gap:6px; border-bottom:1px solid var(--border); border-right:0; } .admin-sidebar .brand { display:none; } .admin-sidebar button { flex-shrink:0; font-size:11px; } .admin-sidebar .admin-bottom { display:none; } .admin-main { padding:22px 16px; } .admin-topbar { flex-wrap:wrap; } .stats-grid { grid-template-columns:repeat(2,1fr); gap:10px; } .stat-card { padding:15px; } .stat-card strong { font-size:25px; } .stat-card span { font-size:10px; } .chart-grid { grid-template-columns:1fr; } .editor-row { flex-wrap:wrap; gap:10px; } .editor-row img { width:75px; } .editor-row .row-actions { margin-left:auto; }
 }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
+
+.admin-access-dot { border-radius:50%; flex-shrink:0; background:var(--primary); color:var(--primary-foreground); width:32px; height:32px; }
+.admin-logo-preview { width:100px; height:80px; object-fit:contain; }
+.header-inner > .brand { min-width:0; max-width:310px; flex-shrink:1; }
+.header-inner .brand-name { font-size:21px; }
+.header-actions { flex-shrink:0; gap:8px; }
+@media(max-width:760px) { .header-inner .brand-name { font-size:17px; } .header-inner .brand-label { font-size:7px; } .header-inner > .brand { gap:7px; max-width:calc(100% - 134px); } .header-inner .brand-mark { width:27px; height:27px; flex-shrink:0; } .announcement { padding-inline:16px; text-align:center; font-size:9px; } }

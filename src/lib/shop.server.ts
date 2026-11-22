@@ -12,7 +12,7 @@ export async function displayImage(value:string) {
  const {supabaseAdmin}=await import('@/integrations/supabase/client.server');
  const {data,error}=await supabaseAdmin.storage.from('confeitaria').createSignedUrl(path,3600);
  if(error)throw new Error('Não foi possível carregar uma foto.');
- const browserUrl=import.meta.env.VITE_SUPABASE_URL;
+ const browserUrl=import.meta.env['VITE_SUPABASE_URL'];
  if(!browserUrl)throw new Error('Endereço de imagens não configurado.');
  const signed=new URL(data.signedUrl); return `${browserUrl}${signed.pathname}${signed.search}`;
 }

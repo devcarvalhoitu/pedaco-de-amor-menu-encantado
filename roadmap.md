@@ -3,4 +3,9 @@
 - [x] Incluir bolinha rosa, login, recuperação de senha e acesso restrito.
 - [x] Incluir somente dashboard, envio de logo e edição das imagens do carrossel.
 - [x] Verificar upload, exibição pública, acesso negado e tela de celular.
-- [ ] Criar a primeira administradora — aguarda o e-mail da dona.
+- [x] Criar a administradora (pedacodeamorgourmet@gmail.com) com papel admin.
+- [x] Aplicar a logo enviada no cabeçalho, rodapé e ícone do site.
+- [x] Exibir o CNPJ 31.751.179/0001-42 no rodapé.
+- [x] Gráficos de movimento (visitas/pedidos por dia) e doces mais vendidos no painel.
+- [ ] Número de WhatsApp da empresa — aguarda o número (veio incompleto no pedido).
+- [ ] Controle de conta bancária (entradas/saídas) — fora do escopo dos créditos atuais.

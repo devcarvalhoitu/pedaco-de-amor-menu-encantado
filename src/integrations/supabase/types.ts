@@ -127,6 +127,7 @@ export type Database = {
           about_text: string
           about_title: string
           address: string
+          cnpj: string
           email: string
           feed_embed: string
           feed_links: string
@@ -143,6 +144,7 @@ export type Database = {
           about_text?: string
           about_title?: string
           address?: string
+          cnpj?: string
           email?: string
           feed_embed?: string
           feed_links?: string
@@ -159,6 +161,7 @@ export type Database = {
           about_text?: string
           about_title?: string
           address?: string
+          cnpj?: string
           email?: string
           feed_embed?: string
           feed_links?: string

@@ -8,6 +8,13 @@
       "when": 1795291108883,
       "tag": "0000_confeitaria_catalogo_pedidos",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1795479728559,
+      "tag": "0001_add_cnpj_to_settings",
+      "breakpoints": true
     }
   ]
 }

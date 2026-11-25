@@ -32,11 +32,50 @@ export type Database = {
         }
         Relationships: []
       }
+      customers: {
+        Row: {
+          address: string
+          created_at: string
+          email: string
+          marketing_opt_in: boolean
+          name: string
+          phone: string
+          reward_percent: number
+          stamps: number
+          user_id: string
+        }
+        Insert: {
+          address?: string
+          created_at?: string
+          email?: string
+          marketing_opt_in?: boolean
+          name?: string
+          phone?: string
+          reward_percent?: number
+          stamps?: number
+          user_id: string
+        }
+        Update: {
+          address?: string
+          created_at?: string
+          email?: string
+          marketing_opt_in?: boolean
+          name?: string
+          phone?: string
+          reward_percent?: number
+          stamps?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
       orders: {
         Row: {
           address: string
           created_at: string
+          customer_id: string | null
           customer_name: string
+          discount: number
+          email: string
           fulfillment: string
           id: string
           items: Json
@@ -50,7 +89,10 @@ export type Database = {
         Insert: {
           address?: string
           created_at?: string
+          customer_id?: string | null
           customer_name: string
+          discount?: number
+          email?: string
           fulfillment: string
           id?: string
           items: Json
@@ -64,7 +106,10 @@ export type Database = {
         Update: {
           address?: string
           created_at?: string
+          customer_id?: string | null
           customer_name?: string
+          discount?: number
+          email?: string
           fulfillment?: string
           id?: string
           items?: Json
@@ -82,6 +127,7 @@ export type Database = {
           available: boolean
           category_id: string | null
           description: string
+          discount_percent: number
           featured: boolean
           id: string
           image_url: string
@@ -93,6 +139,7 @@ export type Database = {
           available?: boolean
           category_id?: string | null
           description?: string
+          discount_percent?: number
           featured?: boolean
           id?: string
           image_url?: string
@@ -104,6 +151,7 @@ export type Database = {
           available?: boolean
           category_id?: string | null
           description?: string
+          discount_percent?: number
           featured?: boolean
           id?: string
           image_url?: string

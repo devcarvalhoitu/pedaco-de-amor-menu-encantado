@@ -15,6 +15,13 @@
       "when": 1795479728559,
       "tag": "0001_add_cnpj_to_settings",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795641975444,
+      "tag": "0002_clientes_descontos_fidelidade",
+      "breakpoints": true
     }
   ]
 }

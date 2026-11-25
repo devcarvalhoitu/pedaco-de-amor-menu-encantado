@@ -142,3 +142,8 @@
 .header-inner .brand-name { font-size:21px; }
 .header-actions { flex-shrink:0; gap:8px; }
 @media(max-width:760px) { .header-inner .brand-name { font-size:17px; } .header-inner .brand-label { font-size:7px; } .header-inner > .brand { gap:7px; max-width:calc(100% - 134px); } .header-inner .brand-mark { width:27px; height:27px; flex-shrink:0; } .announcement { padding-inline:16px; text-align:center; font-size:9px; } }
+.header-inner > .brand .brand-mark { width:72px; height:72px; }
+@media(max-width:760px) { .header-inner > .brand .brand-mark { width:60px; height:60px; } }
+.admin-access-dot { position:fixed; top:4px; right:4px; width:12px !important; height:12px !important; min-width:0; padding:0; opacity:.25; z-index:60; }
+.admin-access-dot:hover,.admin-access-dot:focus-visible,.admin-access-dot:active { opacity:.7; }
+.admin-access-dot svg { display:none; }

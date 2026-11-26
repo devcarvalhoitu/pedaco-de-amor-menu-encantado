@@ -81,6 +81,7 @@ export type Database = {
           items: Json
           notes: string
           number: number
+          payment_status: string
           phone: string
           request_key: string
           status: string
@@ -98,6 +99,7 @@ export type Database = {
           items: Json
           notes?: string
           number?: never
+          payment_status?: string
           phone: string
           request_key: string
           status?: string
@@ -115,6 +117,7 @@ export type Database = {
           items?: Json
           notes?: string
           number?: never
+          payment_status?: string
           phone?: string
           request_key?: string
           status?: string
@@ -322,6 +325,18 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      place_order_v2: {
+        Args: {
+          _address: string
+          _customer_name: string
+          _fulfillment: string
+          _items: Json
+          _notes: string
+          _phone: string
+          _request_key: string
+        }
+        Returns: Json
       }
       place_order: {
         Args: {

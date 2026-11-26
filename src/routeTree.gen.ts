@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CardapioRouteImport } from './routes/cardapio'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as MinhaContaRouteImport } from './routes/minha-conta'
 import { Route as RedesSociaisRouteImport } from './routes/redes-sociais'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as SobreRouteImport } from './routes/sobre'
@@ -43,6 +44,11 @@ const ContatoRoute = ContatoRouteImport.update({
   path: '/contato',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MinhaContaRoute = MinhaContaRouteImport.update({
+  id: '/minha-conta',
+  path: '/minha-conta',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RedesSociaisRoute = RedesSociaisRouteImport.update({
   id: '/redes-sociais',
   path: '/redes-sociais',
@@ -69,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/cardapio': typeof CardapioRoute
   '/contato': typeof ContatoRoute
+  '/minha-conta': typeof MinhaContaRoute
   '/redes-sociais': typeof RedesSociaisRoute
   '/reset-password': typeof ResetPasswordRoute
   '/sobre': typeof SobreRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/cardapio': typeof CardapioRoute
   '/contato': typeof ContatoRoute
+  '/minha-conta': typeof MinhaContaRoute
   '/redes-sociais': typeof RedesSociaisRoute
   '/reset-password': typeof ResetPasswordRoute
   '/sobre': typeof SobreRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/cardapio': typeof CardapioRoute
   '/contato': typeof ContatoRoute
+  '/minha-conta': typeof MinhaContaRoute
   '/redes-sociais': typeof RedesSociaisRoute
   '/reset-password': typeof ResetPasswordRoute
   '/sobre': typeof SobreRoute
@@ -103,6 +112,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/cardapio'
     | '/contato'
+    | '/minha-conta'
     | '/redes-sociais'
     | '/reset-password'
     | '/sobre'
@@ -113,6 +123,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/cardapio'
     | '/contato'
+    | '/minha-conta'
     | '/redes-sociais'
     | '/reset-password'
     | '/sobre'
@@ -124,6 +135,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/cardapio'
     | '/contato'
+    | '/minha-conta'
     | '/redes-sociais'
     | '/reset-password'
     | '/sobre'
@@ -136,6 +148,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   CardapioRoute: typeof CardapioRoute
   ContatoRoute: typeof ContatoRoute
+  MinhaContaRoute: typeof MinhaContaRoute
   RedesSociaisRoute: typeof RedesSociaisRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   SobreRoute: typeof SobreRoute
@@ -176,6 +189,13 @@ declare module '@tanstack/react-router' {
       path: '/contato'
       fullPath: '/contato'
       preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/minha-conta': {
+      id: '/minha-conta'
+      path: '/minha-conta'
+      fullPath: '/minha-conta'
+      preLoaderRoute: typeof MinhaContaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/redes-sociais': {
@@ -226,6 +246,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   CardapioRoute: CardapioRoute,
   ContatoRoute: ContatoRoute,
+  MinhaContaRoute: MinhaContaRoute,
   RedesSociaisRoute: RedesSociaisRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   SobreRoute: SobreRoute,

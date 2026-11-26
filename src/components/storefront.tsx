@@ -13,7 +13,7 @@ import {toast} from 'sonner';
 export function SocialIcon({network,className}:{network:string;className?:string}) {const Icon=network==='Instagram'?Instagram:network==='Facebook'?Facebook:network==='YouTube'?Youtube:network==='WhatsApp'?MessageCircle:ArrowUpRight;return <Icon className={className??'size-4'}/>;}
 export function SocialButtons({socials}:{socials:Social[]}) {return <div className="flex gap-3 flex-wrap">{socials.filter(s=>safeLink(s.url)).map(s=><Button key={s.id} variant="outline" asChild><a href={safeLink(s.url)} target="_blank" rel="noreferrer"><SocialIcon network={s.network}/>{s.network}</a></Button>)}</div>;}
 export function Brand({name,logo}:{name:string;logo?:string}) {return <Link to="/" className="brand">{logo?<img src={logo} alt="" className="brand-mark object-contain"/>:<CakeSlice className="brand-mark" strokeWidth={1.3}/>}<div><div className="brand-name">{name}</div><div className="brand-label">Confeitaria artesanal</div></div></Link>;}
-const navigation=[{to:'/',label:'Início'},{to:'/cardapio',label:'Cardápio'},{to:'/sobre',label:'Sobre'},{to:'/redes-sociais',label:'Redes Sociais'},{to:'/contato',label:'Contato'}] as const;
+const navigation=[{to:'/',label:'Início'},{to:'/cardapio',label:'Cardápio'},{to:'/sobre',label:'Sobre'},{to:'/redes-sociais',label:'Redes Sociais'},{to:'/contato',label:'Contato'},{to:'/minha-conta',label:'Minha conta'}] as const;
 export function Storefront({children}:{children:ReactNode}) {
  const {data}=useSuspenseQuery(shopQuery);const s=data.settings;const cart=useCart();const [menu,setMenu]=useState(false);const location=useLocation();const visit=useServerFn(recordVisit);
  useEffect(()=>{document.documentElement.dataset['theme']=s.theme;},[s.theme]);

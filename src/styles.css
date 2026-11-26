@@ -147,3 +147,9 @@
 .admin-access-dot { position:fixed; top:4px; right:4px; width:12px !important; height:12px !important; min-width:0; padding:0; opacity:.25; z-index:60; }
 .admin-access-dot:hover,.admin-access-dot:focus-visible,.admin-access-dot:active { opacity:.7; }
 .admin-access-dot svg { display:none; }
+
+.header-inner > .brand img.brand-mark { width:auto; height:80px; max-width:200px; }
+@media (max-width:760px){ .header-inner > .brand img.brand-mark { height:66px; max-width:140px; } }
+.loyalty-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+.loyalty-grid span { aspect-ratio:1; border-radius:14px; border:2px dashed var(--border); display:grid; place-items:center; color:var(--primary); }
+.loyalty-grid span[data-on='true'] { background:var(--primary); color:var(--primary-foreground); border-style:solid; border-color:var(--primary); }

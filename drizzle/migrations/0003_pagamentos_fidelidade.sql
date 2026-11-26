@@ -81,6 +81,8 @@ BEGIN
   IF FOUND AND c.reward_percent>0 AND c.stamps>=20 THEN
    reward:=round(result_total*c.reward_percent/100.0,2);
    result_total:=result_total-reward;
+   -- O benefício foi aplicado neste pedido: o cartão reinicia uma única vez.
+   UPDATE public.customers SET stamps=0,reward_percent=0 WHERE user_id=c.user_id;
   END IF;
  END IF;
  INSERT INTO public.orders(request_key,customer_name,phone,fulfillment,address,notes,items,total,customer_id,email,discount)

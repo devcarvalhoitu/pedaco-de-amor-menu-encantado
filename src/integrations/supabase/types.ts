@@ -81,6 +81,7 @@ export type Database = {
           items: Json
           notes: string
           number: number
+          payment_status: string
           phone: string
           request_key: string
           status: string
@@ -98,6 +99,7 @@ export type Database = {
           items: Json
           notes?: string
           number?: never
+          payment_status?: string
           phone: string
           request_key: string
           status?: string
@@ -115,6 +117,7 @@ export type Database = {
           items?: Json
           notes?: string
           number?: never
+          payment_status?: string
           phone?: string
           request_key?: string
           status?: string

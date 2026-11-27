@@ -1,4 +1,5 @@
 # Confeitaria — escopo atual
+- [ ] Atualizar selos por pedido, resgate automático e pagamento visível ao cliente; verificar o fluxo completo.
 - [x] Atualizar nome para Pedaços de amor gourmet, preservando o visual.
 - [x] Incluir bolinha rosa, login, recuperação de senha e acesso restrito.
 - [x] Incluir somente dashboard, envio de logo e edição das imagens do carrossel.

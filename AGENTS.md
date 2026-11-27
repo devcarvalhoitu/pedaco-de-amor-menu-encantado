@@ -32,6 +32,7 @@ use the editor.
 ## Application architecture
 - Public storefront data loads through an RLS-scoped server function and shared Query options; this keeps server rendering and customer views consistent.
 - Orders are created by a validated database RPC that calculates catalog prices; never accept customer-supplied totals.
+- The order RPC awards stamps and consumes loyalty rewards atomically; payment confirmation never mutates loyalty, preventing duplicate stamps and accidental resets.
 - Administrative data access uses the authenticated client and database role policies; no role is derived from profile metadata.
 - Private media paths are signed only after reading an approved public content row; never expose arbitrary storage paths.
 - Shared storefront and cart components live outside route modules; each public content route owns its metadata.

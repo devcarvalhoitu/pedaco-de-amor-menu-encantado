@@ -22,6 +22,13 @@
       "when": 1795641975444,
       "tag": "0002_clientes_descontos_fidelidade",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1795738805856,
+      "tag": "0003_selos_por_pedido_pagamento_cliente",
+      "breakpoints": true
     }
   ]
 }
